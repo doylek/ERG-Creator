@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <title>ERG Workout Creator</title>
+
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <script src="js/jquery-3.3.1.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>ERG File Creator, v0.1</h1>
+
+                <div class="row">
+                    <div class="col" id="inputside">
+                        <form action="" id="setupForm">
+
+                          <div class="form-group">
+                              <label for="workoutName">Workout Name</label>
+                              <div class="input-group">
+                                  <input type="text" class="form-control" id="workoutName" placeholder="Workout Name">
+                              </div>
+                          </div>
+
+
+                            <div class="form-group" id='measureChoice'>
+                                <!-- watt/percent choice group  -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="wattPercent" id="wattPercentPercent" value="percent" onclick="changeMeasure('%')" checked>
+                                    <label class="form-check-label" for="wattPercentPercent"> Format with Percentages </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="wattPercent" id="wattPercentWatt" value="watt" onclick="changeMeasure('watts')">
+                                    <label class="form-check-label" for="wattPercentWatt"> Format with watts </label>
+                                </div>
+                            </div>
+
+                            <!-- Generic segment -->
+                            <div id="segment1" class="segment">
+                                <div class="form-group">
+                                    <label for="groupName1">Segment 1</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control groupName" id="groupName1" value="Segment 1">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary button-grouper grouper1" type="button" onclick="groupWithNext(1)">Group with next segment</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="segTime1">Segment Time</label>
+                                    <div class="col input-group">
+                                        <input type="number" min="0" class="form-control segTime" id="segTime1" value="5">
+                                    </div>
+                                    <label for="segEff1">Segment Effort</label>
+                                    <div class="col input-group">
+                                        <input type="number" min="0" class="form-control segEff" id="segEff1" value="70">
+                                        <div class="input-group-append"> <span class="input-group-text typeToggle">%</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end generic segment -->
+                            <button type="button" class="btn btn-default" onclick="thisSegmentNumber = addSegment();" id="addSegButton">Add Segment</button>
+                            <button type="button" class="btn btn-default" onclick="proceedToReps()" id="proceedToRepsButton">Proceed</button>
+                        </form>
+
+                        <form action="" id="repsForm" style="display:none;">
+                            <div id="groupsArea">
+                              
+                            </div>
+                            <div class="form-check" style='margin-bottom:25px;'>
+                              <input class="form-check-input" type="checkbox" value="" id="lapCheck">
+                              <label class="form-check-label" for="lapCheck">
+                                Write LAP labels to output
+                              </label>
+                            </div>
+                            <button type="button" class="btn btn-default" onclick="backButton()">Back</button>
+                            <button type="button" class="btn btn-default" onclick="doneButton()">Done</button>
+                        </form>
+
+                    </div>
+
+                    <div class="col">
+                        <div id="outputArea" style="display:none;">
+                          <textarea name="output" rows="8" cols="50" id="output" readonly></textarea>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    <script src="/js/segment_creator.js" charset="utf-8"></script>
+
+</body>
+
+</html>

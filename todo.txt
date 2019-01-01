@@ -1,0 +1,22 @@
+basic gui
+  left side
+--    watts/percent choice
+--    x time at y level
+--    method to group segments
+--    method to rep groups
+  right side
+--    basic text output
+--    save button
+    
+javascript
+--  write in boilerplate format
+--  read watts/percent
+--  group entries
+--  add more entries
+--  write times to output section according to x time, y level, z [watts/percent]
+--  repeat a group according to reps entry
+--  give option to write LAP entry
+--  ungroup entries
+  
+css
+--  not super ugly

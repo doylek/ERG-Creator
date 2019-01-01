@@ -1,0 +1,24 @@
+body {
+  background-color: lightblue;
+  padding-top: 20px;
+}
+form {
+  padding: 3px;
+}
+.container {
+  background-color: white;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+.groupparent {
+  border-style: solid solid none solid;
+  border-color: lightgreen;
+}
+.groupmid {
+  border-style: none solid none solid;
+  border-color: lightgreen;
+}
+.groupend {
+  border-style: none solid solid solid;
+  border-color: lightgreen;
+}
