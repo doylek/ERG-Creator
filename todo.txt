@@ -4,6 +4,9 @@ basic gui
 --    x time at y level
 --    method to group segments
 --    method to rep groups
+    named zones translated to percents in file? ("warm-up"/"recovery"/"sweet-spot"/etc)
+    gradient option
+    
   right side
 --    basic text output
 --    save button
@@ -17,6 +20,9 @@ javascript
 --  repeat a group according to reps entry
 --  give option to write LAP entry
 --  ungroup entries
-  
+  delete entries
+  gradient option
+  named zones (see above)
+
 css
 --  not super ugly
