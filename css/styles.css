@@ -1,5 +1,5 @@
 body {
-  background-color: lightblue;
+  background-color: darkseagreen;
   padding-top: 20px;
 }
 form {
@@ -9,16 +9,33 @@ form {
   background-color: white;
   padding-top: 20px;
   padding-bottom: 40px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px 0px, rgba(0, 0, 0, 0.22) 0px 10px 10px 0px;
 }
 .groupparent {
-  border-style: solid solid none solid;
-  border-color: lightgreen;
+  border-style: solid solid none solid !important;
+  border-width: medium !important;
+  border-color: lightgreen !important;
+  margin-bottom: -30px !important;
 }
 .groupmid {
   border-style: none solid none solid;
   border-color: lightgreen;
+  margin-bottom: -30px !important;
 }
 .groupend {
   border-style: none solid solid solid;
   border-color: lightgreen;
+}
+.btn-danger {
+  background-color: lightcoral;
+  border-color: #d76767;;
+}
+.btn-danger:hover {
+  background-color: #d76767;
+  border-color: #bd4d4d;
+}
+.segment {
+  margin-top: 15px;
+  padding: 15px 10px;
+  border-top: 1px solid lightgray;
 }

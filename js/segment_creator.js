@@ -23,24 +23,29 @@ function basicSegmentHtml(thisSegmentNumber) {
         '        <div class="input-group-append"> <span class="input-group-text typeToggle">%</span></div>' +
         '    </div>' +
         '</div>' +
+        '       <div class="text-right"> <button type="button" onclick="deleteSegment(' + thisSegmentNumber + ')" class="btn btn-danger btn-sm">Delete Segment ' + thisSegmentNumber + '</button></div>' +
         '</div>;');
 }
 
 function addSegment() {
-
     $(basicSegmentHtml(thisSegmentNumber)).insertBefore("#addSegButton");
 
     return (thisSegmentNumber + 1);
 }
 
 function groupWithNext(segmentnumber) {
-
+    
+    var presentSegments = [];
+    $("#setupForm").find(".segment").each(function(){ presentSegments.push( Number(this.id.slice(-1)) ); });
+    
+    var nextNeighbor = presentSegments[getNextHighestIndex(presentSegments, segmentnumber)];
+    
     var segThis = $('#segment' + segmentnumber),
         nameThis = $('#groupName' + segmentnumber),
-        segNext = $('#segment' + (segmentnumber + 1)),
-        nameNext = $('#groupName' + (segmentnumber + 1)),
+        segNext = $('#segment' + (nextNeighbor)),
+        nameNext = $('#groupName' + (nextNeighbor)),
         master = $('#segment' + segmentnumber).attr('class').split(' ').filter(s => s.includes("master"))[0],
-        masterNext = $('#segment' + (segmentnumber + 1)).attr('class').split(' ').filter(s => s.includes("master"))[0];
+        masterNext = $('#segment' + (nextNeighbor)).attr('class').split(' ').filter(s => s.includes("master"))[0];
 
     if (segNext.length === 0) {
         // segment has not yet been made, skipping all assignments
@@ -108,6 +113,11 @@ function unGroup(segmentnumber) {
     $(this).html("Group with next segment");
   });
   
+}
+
+function deleteSegment(segmentnumber) {
+  unGroup(segmentnumber);
+  $('#segment'+segmentnumber).remove();
 }
 
 function proceedToReps() {
@@ -239,11 +249,8 @@ function saveToFile() {
 }
 
 function changeMeasure(changeTo) {
-  
   console.log(changeTo);
-  
   $('.typeToggle').text(changeTo);
-  
 }
 
 function searchArray(keyword, array) {
@@ -255,4 +262,10 @@ function searchArray(keyword, array) {
     }
   }
   return(matches);
+}
+
+function getNextHighestIndex(arr, value) {
+    var i = arr.length;
+    while (arr[--i] > value);
+    return ++i; 
 }
