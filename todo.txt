@@ -20,7 +20,7 @@ javascript
 --  repeat a group according to reps entry
 --  give option to write LAP entry
 --  ungroup entries
-  delete entries
+--  delete entries
   gradient option
   named zones (see above)
 
